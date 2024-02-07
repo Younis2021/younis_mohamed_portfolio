@@ -1,0 +1,39 @@
+import React from "react"
+import './HomePage.css'
+import Navbar from "./components/Navbar/Navbar";
+import Intro from "./components/Intro/Intro";
+import Services from "./components/Services/Services";
+import Experience from "./components/Experience/Experience";
+import Works from "./components/Works/Works";
+import Portfolio from "./components/Portfolio/Portfolio";
+import Testimonial from "./components/Testimonials/Testimonial";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
+import { useContext } from "react";
+import { themeContext } from "../Data/Context";
+
+export default function HomePage() {
+      
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
+
+    return (
+      <div className="home-page"  
+      style={{
+        background: darkMode ? "black" : "",
+        color: darkMode ? "white" : "",
+      }}>
+        <Navbar />
+        <div className="organizer">
+          <Intro />
+          <Services />
+          <Experience />
+          <Works />
+          <Portfolio />
+          <Testimonial />
+          <Contact />
+          <Footer />
+        </div>
+    </div>
+    )
+}

@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Routes, Route, BrowserRouter as Router, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import HomePage from "./Home/HomePage";
+import ProjectPage from "./Project/ProjectPage";
+import "./page-transitions.css"; // Create this CSS file for animations
 
-function App() {
+const App = () => {
+  const location = useLocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+        <TransitionGroup>
+          <CSSTransition key={location.key} classNames="fade" timeout={900}>
+            <Routes location={location}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/younis" element={<HomePage />} />
+              <Route path="/projectPage/:projectId" element={<ProjectPage />} />
+            </Routes>
+          </CSSTransition>
+        </TransitionGroup>
     </div>
   );
-}
+};
 
 export default App;
