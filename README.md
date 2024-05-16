@@ -1,8 +1,6 @@
-# Project Link
+## Project Link
 
 https://younis-mohamed-portfolio.vercel.app/
-
-
 
 # Getting Started with Create React App
 
